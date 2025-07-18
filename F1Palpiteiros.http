@@ -1,0 +1,6 @@
+@F1Palpiteiros_HostAddress = http://localhost:5261
+
+GET {{F1Palpiteiros_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
