@@ -7,15 +7,14 @@ namespace F1Palpiteiros.Model
         //inicializar com .Empty é uma boa ideia?
         public long Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        private string Login { get; set; } = string.Empty;
-        private string Password { get; set; } = string.Empty;
+        //public string? UserNickname { get; set; }
+        public string UserNumber { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Login { get; set; } = string.Empty;
+        public string PasswordHash { get; set; } = string.Empty;
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
         public UserType Role { get; set; } = UserType.User;
-
-        public User(string Name, string Login, string Password)
-        {
-            this.Name = Name;
-            this.Login = Login;
-            this.Password = Password;
-        }
+        public List<CompetitorStanding>? CompetitorStandings { get; set; }
+        public List<Guess>? Guesses { get; set; }
     }
 }

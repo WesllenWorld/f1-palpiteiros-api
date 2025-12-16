@@ -6,12 +6,12 @@
         public string Name { get; set; }
         public string Abbreviation { get; set; }
         public string Number {  get; set; }
+        public string Team { get; set; }
+        public bool IsMainDriver { get; set; }
 
-        public Driver(string name, string abbreviation, string number)
-        {
-            Name = name;
-            Abbreviation = abbreviation;
-            Number = number;
-        }
+        public ICollection<Suggestion> Suggestions { get; set; } = new List<Suggestion>(); 
+
+
+
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace F1Palpiteiros.Model.Enums
+﻿namespace F1Palpiteiros.Model
 {
     public class RaceWeekEvent
     {
@@ -8,11 +8,12 @@
         public DateTime StartDate { get; set; }
         public List<Guess> Guesses { get; set; }
 
-        public RaceWeekEvent(string name, string description, DateTime startDate)
+        public RaceWeekEvent(string name, string description, DateTime startDate, List<Guess> guesses)
         {
             Name = name;
             Description = description;
             StartDate = startDate;
+            Guesses = guesses;
         }
     }
 }

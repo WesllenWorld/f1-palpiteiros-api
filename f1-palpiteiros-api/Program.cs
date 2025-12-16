@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnectionString");
 
-builder.Services.AddDbContext<UserContext>(opt =>
+builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseSqlServer(connectionString));
 
 builder.Services.AddEndpointsApiExplorer();
