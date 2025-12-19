@@ -6,9 +6,11 @@ namespace F1Palpiteiros.Model
     {
         public long Id { get; set; }
         public string SeasonName { get; set; } = string.Empty;
-        public List<CompetitorStanding>? Competitors { get; set; }
-        public List<RaceWeek>? RaceWeeks { get; set; }
         public string Year { get; set; } = string.Empty;
+        public ICollection<CompetitorStanding>? Competitors { get; set; }
+        public ICollection<RaceWeek>? RaceWeeks { get; set; }
+        public ICollection<RaceWeekEvent>? Events { get; set; }
+        public ICollection<ChampionshipDriver>? Drivers { get; set; } = new List<ChampionshipDriver>();
 
     }
 }

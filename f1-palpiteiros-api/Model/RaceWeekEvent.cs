@@ -3,17 +3,19 @@
     public class RaceWeekEvent
     {
         public long Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
         public DateTime StartDate { get; set; }
-        public List<Guess> Guesses { get; set; }
+        public ICollection<Guess> Guesses { get; set; } = new List<Guess>();
+        public long RaceWeekId { get; set; }
+        public RaceWeek RaceWeek { get; set; } = null!;
 
-        public RaceWeekEvent(string name, string description, DateTime startDate, List<Guess> guesses)
-        {
-            Name = name;
-            Description = description;
-            StartDate = startDate;
-            Guesses = guesses;
-        }
+        /*
+         public void disregardEvent()
+         {
+             // lógica para desconsiderar o evento
+         }
+
+         */
     }
 }

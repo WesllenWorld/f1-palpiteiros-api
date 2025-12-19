@@ -13,8 +13,8 @@ namespace F1Palpiteiros.Model
         public string Login { get; set; } = string.Empty;
         public string PasswordHash { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
-        public UserType Role { get; set; } = UserType.User;
-        public List<CompetitorStanding>? CompetitorStandings { get; set; }
-        public List<Guess>? Guesses { get; set; }
+        public UserType Role { get; set; } = UserType.User; 
+        public ICollection<CompetitorStanding>? CompetitorStandings { get; set; }
+        public ICollection<Guess>? Guesses { get; set; }
     }
 }

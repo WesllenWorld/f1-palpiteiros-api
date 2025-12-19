@@ -53,7 +53,6 @@ namespace F1Palpiteiros.Context
                       .IsUnique();
 
                 entity.Property(u => u.Login)
-                  //.IsUnique()
                   .HasMaxLength(100);
 
                 entity.HasIndex(u => u.Login)
@@ -74,23 +73,55 @@ namespace F1Palpiteiros.Context
                       .IsRequired()
                       .OnDelete(DeleteBehavior.Cascade);
             });
+
             /* TALVEZ NÃO PRECISE
             modelBuilder.Entity<CompetitorStanding>(entity =>
             {
                 entity.
                 });
             */
+
             //Championship
             modelBuilder.Entity<Championship>(entity =>
             {
-                entity.HasMany(Ch => Ch.Competitors)
+                entity.HasMany(ch => ch.Competitors)
                       .WithOne(cs => cs.Championship)
                       .HasForeignKey(cs => cs.ChampionshipId)
                       .IsRequired()
                       .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasMany(ch => ch.RaceWeeks)
+                      .WithOne(cs => cs.Championship)
+                      .HasForeignKey(cs => cs.ChampionshipId)
+                      .IsRequired()
+                      .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasMany(ch => ch.Drivers)
+                      .WithOne(cd => cd.Championship)
+                      .HasForeignKey(cd => cd.ChampionshipId)
+                      .IsRequired()
+                      .OnDelete(DeleteBehavior.Cascade);
+            });
+
+            //precisarei configurar aqui a relação Driver-Suggestion? receio que não, mas fica o comentário
+            modelBuilder.Entity<Driver>(entity =>
+            {
+                entity.HasMany(d => d.Championships)
+                .WithOne(cd => cd.Driver)
+                .HasForeignKey(cd => cd.DriverId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
             });
 
             //raceweek
+            modelBuilder.Entity<RaceWeek>(entity =>
+            {
+                entity.HasMany(rw => rw.Events)
+                      .WithOne(rwe => rwe.RaceWeek)
+                      .HasForeignKey(rwe => rwe.RaceWeekId)
+                      .IsRequired()
+                      .OnDelete(DeleteBehavior.Cascade);
+            });
         }
     }
 }
