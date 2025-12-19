@@ -74,14 +74,23 @@ namespace F1Palpiteiros.Context
                       .IsRequired()
                       .OnDelete(DeleteBehavior.Cascade);
             });
-            /*
+            /* TALVEZ NÃO PRECISE
             modelBuilder.Entity<CompetitorStanding>(entity =>
             {
                 entity.
                 });
             */
+            //Championship
+            modelBuilder.Entity<Championship>(entity =>
+            {
+                entity.HasMany(Ch => Ch.Competitors)
+                      .WithOne(cs => cs.Championship)
+                      .HasForeignKey(cs => cs.ChampionshipId)
+                      .IsRequired()
+                      .OnDelete(DeleteBehavior.Cascade);
+            });
 
-
+            //raceweek
         }
     }
 }

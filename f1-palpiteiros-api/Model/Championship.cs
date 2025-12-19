@@ -8,7 +8,7 @@ namespace F1Palpiteiros.Model
         public string SeasonName { get; set; } = string.Empty;
         public List<CompetitorStanding>? Competitors { get; set; }
         public List<RaceWeek>? RaceWeeks { get; set; }
-
+        public string Year { get; set; } = string.Empty;
 
     }
 }
