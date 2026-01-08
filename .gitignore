@@ -367,3 +367,4 @@ FodyWeavers.xsd
 docker-compose.yml
 docker-compose.override.yml
 docker-compose.dcproj
+appsettings.json
