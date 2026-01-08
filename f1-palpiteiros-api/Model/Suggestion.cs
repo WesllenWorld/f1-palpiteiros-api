@@ -2,7 +2,7 @@
 {
     public class Suggestion
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public int Position { get; set; }
         public long GuessId { get; set; }
         public Guess Guess { get; set; } = null!;

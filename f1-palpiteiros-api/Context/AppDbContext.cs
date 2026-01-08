@@ -71,7 +71,7 @@ namespace F1Palpiteiros.Context
                       .WithOne(g => g.User)
                       .HasForeignKey(g => g.UserId)
                       .IsRequired()
-                      .OnDelete(DeleteBehavior.Cascade);
+                      .OnDelete(DeleteBehavior.Restrict);
             });
 
             /* TALVEZ NÃO PRECISE
@@ -121,6 +121,12 @@ namespace F1Palpiteiros.Context
                       .HasForeignKey(rwe => rwe.RaceWeekId)
                       .IsRequired()
                       .OnDelete(DeleteBehavior.Cascade);
+            });
+
+            //championshipdriver
+            modelBuilder.Entity<ChampionshipDriver>(entity =>
+            {
+                entity.HasKey(cd => new { cd.ChampionshipId, cd.DriverId });
             });
         }
     }

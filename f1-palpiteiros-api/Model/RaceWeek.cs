@@ -7,9 +7,9 @@
         public string Description { get; set; } = string.Empty;
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
-        public Championship? Championship { get; set; }
+        public Championship Championship { get; set; }
         public long ChampionshipId { get; set; }
-        public ICollection<RaceWeekEvent>? Events { get; set; } = new List<RaceWeekEvent>();
+        public ICollection<RaceWeekEvent> Events { get; set; } = new List<RaceWeekEvent>();
 
 
         /*
