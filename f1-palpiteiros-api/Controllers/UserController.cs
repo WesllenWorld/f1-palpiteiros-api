@@ -32,5 +32,9 @@ namespace F1Palpiteiros.Controllers
             })
             .ToArray();
         }
+
+        public void login() {
+            //_userService.();
+        }
     }
 }

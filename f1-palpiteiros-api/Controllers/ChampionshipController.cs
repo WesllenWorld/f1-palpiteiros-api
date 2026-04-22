@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using F1Palpiteiros.DTOs;
+using F1Palpiteiros.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace F1Palpiteiros.Controllers
 {
@@ -12,10 +14,12 @@ namespace F1Palpiteiros.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IChampionshipService _championshipService;
 
-        public ChampionshipController(ILogger<WeatherForecastController> logger)
+        public ChampionshipController(ILogger<WeatherForecastController> logger, IChampionshipService championshipService)
         {
             _logger = logger;
+            _championshipService = championshipService;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -29,5 +33,32 @@ namespace F1Palpiteiros.Controllers
             })
             .ToArray();
         }
+
+        //criar um novo campeonato
+        //IMPLEMENTAR
+        public async Task<IActionResult> CreateChampionship([FromBody] CreateChampionshipDTO createChampionshipDTO)
+        {
+
+            try
+            {
+                return Ok(_championshipService.CreateChampionship(createChampionshipDTO));
+            } catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+        //listar campeonatos
+        //IMPLEMENTAR
+
+
+        //editar campeonato
+        //IMPLEMENTAR
+
+        //excluir campeonato
+        //IMPLEMENTAR
+
+
     }
 }

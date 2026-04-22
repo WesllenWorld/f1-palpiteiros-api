@@ -6,7 +6,7 @@ namespace F1Palpiteiros.Model
     {
         public long Id { get; set; }
         public string SeasonName { get; set; } = string.Empty;
-        public int Year { get; private set; }
+        public int Year { get; set; }
         public ICollection<CompetitorStanding> Competitors { get; set; } = new List<CompetitorStanding>();
         public ICollection<RaceWeek> RaceWeeks { get; set; } = new List<RaceWeek>();
         public ICollection<RaceWeekEvent> Events { get; set; } = new List<RaceWeekEvent>();
