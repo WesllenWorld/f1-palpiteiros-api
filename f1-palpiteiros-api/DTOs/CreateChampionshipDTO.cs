@@ -3,6 +3,6 @@
     public class CreateChampionshipDTO
     {
         public string SeasonName { get; set; }
-        public int? Year { get; set; }
+        public string Year { get; set; }
     }
 }

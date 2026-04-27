@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace F1Palpiteiros.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ChampionshipController : ControllerBase
     {
         
@@ -37,7 +37,8 @@ namespace F1Palpiteiros.Controllers
 
             try
             {
-                return Ok(_championshipService.CreateChampionship(createChampionshipDTO));
+                var result = await _championshipService.CreateChampionship(createChampionshipDTO);
+                return Ok(result);
             } catch (Exception ex)
             {
                 return BadRequest(ex.Message);
