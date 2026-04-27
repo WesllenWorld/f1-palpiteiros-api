@@ -14,9 +14,18 @@ namespace F1Palpiteiros.Services
         }
         public async Task<ChampionshipDTO> CreateChampionship(CreateChampionshipDTO createChampionshipDTO)
         { 
-            // Lógica para criar um campeonato
+            // Lógica para validar nome do campeonato
+            if(string.IsNullOrEmpty(createChampionshipDTO.SeasonName))
+            {
+                throw new ArgumentException("SeasonName is required.");
+            }
+            if(createChampionshipDTO.SeasonName.Length > 100)
+            {
+                throw new ArgumentException("SeasonName cannot exceed 100 characters.");
+            }
 
-
+            //validar ano (dentro dos padrões do int)
+            //validação
 
             //válido -> prossegue para acessar database
             Championship championship = await _championshiprepository.AddAsync(new Championship

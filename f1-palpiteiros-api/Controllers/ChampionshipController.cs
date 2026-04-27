@@ -8,20 +8,15 @@ namespace F1Palpiteiros.Controllers
     [Route("[controller]")]
     public class ChampionshipController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-        private readonly ILogger<WeatherForecastController> _logger;
+        
         private readonly IChampionshipService _championshipService;
 
-        public ChampionshipController(ILogger<WeatherForecastController> logger, IChampionshipService championshipService)
+        public ChampionshipController(IChampionshipService championshipService)
         {
-            _logger = logger;
             _championshipService = championshipService;
         }
 
+        /*
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
@@ -32,10 +27,11 @@ namespace F1Palpiteiros.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
-        }
+        }*/
 
         //criar um novo campeonato
-        //IMPLEMENTAR
+        //IMPLEMENTAR validação de dados
+        [HttpPost]
         public async Task<IActionResult> CreateChampionship([FromBody] CreateChampionshipDTO createChampionshipDTO)
         {
 

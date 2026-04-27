@@ -101,6 +101,10 @@ namespace F1Palpiteiros.Context
                       .HasForeignKey(cd => cd.ChampionshipId)
                       .IsRequired()
                       .OnDelete(DeleteBehavior.Cascade);
+
+                entity.Property(ch => ch.SeasonName)
+                      .HasMaxLength(100)
+                      .IsRequired();
             });
 
             //precisarei configurar aqui a relação Driver-Suggestion? receio que não, mas fica o comentário
