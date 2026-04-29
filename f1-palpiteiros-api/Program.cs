@@ -1,4 +1,5 @@
 using F1Palpiteiros.Context;
+using F1Palpiteiros.Repositories;
 using F1Palpiteiros.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddScoped<IChampionshipService, ChampionshipService>();
+builder.Services.AddScoped<IChampionshipRepository, ChampionshipRepository>();
+
+builder.Services.AddScoped<IUserService, UserService>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
